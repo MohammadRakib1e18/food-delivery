@@ -1,0 +1,7 @@
+.order-products img{
+    max-width: 100%;
+}
+.order-products{
+    border:1px solid whitesmoke;
+    box-shadow: 3px 5px 35px gray;
+}

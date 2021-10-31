@@ -1,0 +1,67 @@
+[
+    {
+        "_id": "616e09c879dd4afe2020ef2c",
+        "index": 1,
+        "picture": "https://goresto.modeltheme.com/wp-content/uploads/2017/02/sushi3.png",
+        "name": "MINADO SUSHI RICE",
+        "price": 15.99,
+        "about": "Here we take care of every patients. This is our moral duty to do that. We want to give proper treamnent by any means.\r\n"
+    },
+    {
+        "_id": "616e09c851b6fc4eb1881bc5",
+        "index": 2,
+        "picture": "https://goresto.modeltheme.com/wp-content/uploads/2017/02/sushi2.png",
+        "name": "KAPPA MAKI",
+        "price": 14.50,
+        "about": "Here we take care of every patients. This is our moral duty to do that. We want to give proper treamnent by any means.\r\n"
+    },
+    {
+        "_id": "616e09c8ea578ba70207e5e8",
+        "index": 3,
+        "picture": "https://goresto.modeltheme.com/wp-content/uploads/2017/02/sushi1.png",
+        "name": "TAMAGO YAKI",
+        "price": 15.50,
+        "about": "Here we take care of every patients. This is our moral duty to do that. We want to give proper treamnent by any means.\r\n"    },
+    {
+        "_id": "616e09c8d440d27b197ebb5b",
+        "index": 4,
+        "picture": "https://goresto.modeltheme.com/wp-content/uploads/2017/02/sushi6.png",
+        "name": "CRUNCHY SHRIMP ROLL",
+        "price": 13.30,
+        "about": "Here we take care of every patients. This is our moral duty to do that. We want to give proper treamnent by any means.\r\n"    },
+    {
+        "_id": "616e09c820e481a7c9291da7",
+        "index": 5,
+        "picture": "https://goresto.modeltheme.com/wp-content/uploads/2017/02/sushi4.png",
+        "name": "KAPPA MAKI",
+        "price": 14.50,
+        "about": "Here we take care of every patients. This is our moral duty to do that. We want to give proper treamnent by any means.\r\n"    },
+    {
+        "_id": "616e09c800a1e633f91aa912",
+        "index": 6,
+        "picture": "https://goresto.modeltheme.com/wp-content/uploads/2017/02/sushi5.png",
+        "name": "CRUNCHY SHRIMP",
+        "price": 13.30,
+        "about": "Here we take care of every patients. This is our moral duty to do that. We want to give proper treamnent by any means.\r\n"    },
+    {
+        "_id": "616e09c873a1c0ad7df1eba0",
+        "index": 7,
+        "picture": "https://goresto.modeltheme.com/wp-content/uploads/2017/02/fastfood_menu_item2.png",
+        "name": "Double Cheeseburger",
+        "price": 29,
+        "about": "Here we take care of every patients. This is our moral duty to do that. We want to give proper treamnent by any means.\r\n"    },
+    {
+        "_id": "616e09c8200af6bbd252f1c7",
+        "index": 8,
+        "picture": "https://goresto.modeltheme.com/wp-content/uploads/2017/02/fastfood_menu_item4.png",
+        "name": "Crispy Chicken Sandwich",
+        "price": 25,
+        "about": "Here we take care of every patients. This is our moral duty to do that. We want to give proper treamnent by any means.\r\n"    },
+    {
+        "_id": "616e09c8b2b24e4327986ba2",
+        "index": 9,
+        "picture": "https://goresto.modeltheme.com/wp-content/uploads/2017/02/fastfood_menu_item5.png",
+        "name": "Original Hamburger",
+        "price": 39,
+        "about": "Here we take care of every patients. This is our moral duty to do that. We want to give proper treamnent by any means.\r\n"    }
+]

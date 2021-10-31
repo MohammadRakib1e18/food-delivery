@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap');
+.banner-container{
+    background-color: #9B46F5;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 50px;
+}
+.banner-container img{
+    max-width: 80%;
+    margin-top: 40px;
+    margin-left: 80px;
+}
+.banner-descrition{
+    margin-top: 20%;
+    color:whitesmoke;
+}
+.banner-descrition h1{
+    font-size: 3.5em;
+    font-family: 'Noto Serif', serif;
+}
+.connection-container h1{
+    color: rgba(40, 63, 138, 0.534);
+}
+
+.process{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.single-process img{
+    max-width: 90%;
+}
+.single-process{
+    margin: 10px;
+    text-align: center;
+}
+
+.founders{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.founder img{
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+}
