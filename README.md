@@ -1,11 +1,11 @@
-# Health Care Center
+# Quick Food Server
 
-> This project was bootstrapped with [Health Care Center](https://health-care-center.netlify.app/).
+> This project was bootstrapped with [Quick Food Server](https://quick-food-server.netlify.app/).
 
-This site helps to:
+Some Key Features:
 
-* get health tips.
-* find some excellent doctors.
-* find propers treament environment.
-* our success moments.
-* easy to contact with best doctors of the world.
+* Easy way to get favourite foods.
+* User friendly site.
+* Get information about foods.
+* Determined to complete the delivery quickly .
+* Different types of foods to choose.
