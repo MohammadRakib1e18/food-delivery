@@ -7,7 +7,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
     
     useEffect(()=>{
-        fetch('./services.json')
+        fetch('http://localhost:5000/services')
         .then(res => res.json())
         .then(data => setServices(data));
     }, [])
@@ -16,7 +16,7 @@ const Services = () => {
         <div className="mt-4 services">
             {
                 services.map(service => <Service
-                    key={service.index}
+                    key={service._id}
                     service={service}
                     ></Service> )
             }

@@ -4,15 +4,17 @@ import './Service.css';
 
 const Service = (props) => {
     // destructuring
-    const {index, picture, name, about} = props.service;
+    const {_id, img, Description, price, Name} = props.service;
 
     return (
         <div className="service">
-            <img className="text-center" src={picture} alt="" />
+            <img className="text-center" src={img} alt="" />
             <div className="text-center">
-                <h4>{name}</h4>
-                <p>{about}</p>
-                <Link to={`/booking/${index}`}>
+                <h4>{Name}</h4>
+                <h5>Price: {price}</h5>
+                <p>{Description}</p>
+
+                <Link to={`/booking/${_id}`}>
                     <button className="btn btn-warning">Order Now</button>
                 </Link>
                 {/* {
