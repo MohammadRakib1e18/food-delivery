@@ -6,7 +6,7 @@
      Media Queries
 -------------------- */
 /* Responsiveness for Mobile Devices */
-@media only screen and (min-width:901px) and (max-width: 1100px) {
+@media only screen and (min-width:901px) and (max-width: 1300px) {
     .services{
         grid-template-columns: repeat(2, 1fr);
     }
