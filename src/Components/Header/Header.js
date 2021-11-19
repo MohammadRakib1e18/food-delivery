@@ -5,22 +5,22 @@ import useAuth from '../hooks/useAuth';
 import './Header.css';
 
 const Header = () => {
-    const { user, logOut } = useAuth();
+    const { user, logout } = useAuth();
+    console.log("header: ", user);
     return (
         <div className="header">
-            {/* <img className="logo" src={logo} alt="" /> */}
             <nav>
                 <NavLink to="/home">Home</NavLink>
                 <NavLink to="/services">Services</NavLink>
                 <NavLink to="/contact">Contact Us</NavLink>
                 {
-                    user.displayName?
+                    user?.email?
                         <span>
                             <NavLink to='/myOrders'>My Orders</NavLink>
                             <NavLink to='/manageOrder'>All Orders</NavLink>
                             <NavLink to='/addService'>Add Service</NavLink>
-                            <span style={{ color: 'rgb(200,200,100)' }}>Hello {user.displayName} </span>
-                            <Button onClick={logOut} variant="secondary" size="sm">Logout</Button>
+                            <span style={{ color: 'rgb(200,200,100)' }}>Hello, {user.displayName} </span>
+                            <Button onClick={logout} variant="secondary" size="sm">Logout</Button>
                         </span>
                         :
                         <NavLink to="/login">Login</NavLink>

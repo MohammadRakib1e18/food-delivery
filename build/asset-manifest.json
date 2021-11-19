@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6a2b0817.chunk.css",
+    "main.js": "/static/js/main.ba22193f.chunk.js",
+    "main.js.map": "/static/js/main.ba22193f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1b8268b0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1b8268b0.js.map",
+    "static/js/2.d2f170c0.chunk.js": "/static/js/2.d2f170c0.chunk.js",
+    "static/js/2.d2f170c0.chunk.js.map": "/static/js/2.d2f170c0.chunk.js.map",
+    "static/js/3.b03d35d4.chunk.js": "/static/js/3.b03d35d4.chunk.js",
+    "static/js/3.b03d35d4.chunk.js.map": "/static/js/3.b03d35d4.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.6a2b0817.chunk.css.map": "/static/css/main.6a2b0817.chunk.css.map",
+    "static/js/2.d2f170c0.chunk.js.LICENSE.txt": "/static/js/2.d2f170c0.chunk.js.LICENSE.txt",
+    "static/media/delivery-banner.3b3c29f3.png": "/static/media/delivery-banner.3b3c29f3.png",
+    "static/media/founder1.59000986.jpg": "/static/media/founder1.59000986.jpg",
+    "static/media/founder2.c691723f.jpg": "/static/media/founder2.c691723f.jpg",
+    "static/media/founder3.c1486ead.jpg": "/static/media/founder3.c1486ead.jpg",
+    "static/media/get-in-touch.c86c2a27.png": "/static/media/get-in-touch.c86c2a27.png",
+    "static/media/process1.c748db69.png": "/static/media/process1.c748db69.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1b8268b0.js",
+    "static/js/2.d2f170c0.chunk.js",
+    "static/css/main.6a2b0817.chunk.css",
+    "static/js/main.ba22193f.chunk.js"
+  ]
+}

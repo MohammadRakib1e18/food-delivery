@@ -1,54 +1,121 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
-import { useState, useEffect } from 'react';
-import initializeAuthentication from './../Login/Firebase/firebase.init';
+import initializeFirebase from "./../Login/Firebase/firebase.init";
+import { useState, useEffect } from "react";
+import {
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    updateProfile,
+    signOut,
+} from "firebase/auth";
 
-initializeAuthentication();
+// initialize firebase app
+initializeFirebase();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [authError, setAuthError] = useState("");
 
     const auth = getAuth();
 
-    const signInUsingGoogle = () => {
+    const registerUser = (
+        email,
+        password,
+        name,
+        history,
+        location
+    ) => {
         setIsLoading(true);
-        const googleProvider = new GoogleAuthProvider();
-
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user);
-                console.log("user: ", result.user);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError("");
+                const newUser = {
+                    email,
+                    displayName: name,
+                };
+                setUser(newUser);
+                // save the user to database.user
+                // saveUser(email, name);
+                // send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    email: email,
+                    displayName: name,
+                })
+                    .then(() => {})
+                    .catch((error) => {});
+                history.replace("/");
+            })
+            .catch((error) => {
+                setAuthError(error.message);
             })
             .finally(() => setIsLoading(false));
-    }
+    };
 
-    // observe user state change
+    const loginUser = (email, password, location, history) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const destination = location?.state?.from || "/";
+                history.replace(destination);
+                setAuthError("");
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    };
+
+    // const saveUser = (email, displayName) => {
+    //     const user = { email, displayName };
+    //     fetch("https://intense-temple-81535.herokuapp.com/users", {
+    //         method: "POST",
+    //         headers: {
+    //             "content-type": "application/json",
+    //         },
+    //         body: JSON.stringify(user),
+    //     }).then();
+    // };
+
+    // observer user state
     useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, user => {
+        const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
-            }
-            else {
-                setUser({})
+            } else {
+                setUser({});
             }
             setIsLoading(false);
         });
         return () => unsubscribed;
-    }, [])
+    }, []);
 
-    const logOut = () => {
+    // useEffect(() => {
+    //     fetch(`https://intense-temple-81535.herokuapp.com/users/${user.email}`)
+    //         .then((res) => res.json())
+    //         .then((data) => setIsAdmin(data));
+    // }, [user.email]);
+
+    const logout = () => {
         setIsLoading(true);
         signOut(auth)
-            .then(() => { })
+            .then(() => {
+                // Sign-out successful.
+            })
+            .catch((error) => {
+                // An error happened.
+            })
             .finally(() => setIsLoading(false));
-    }
+    };
 
     return {
         user,
         isLoading,
-        signInUsingGoogle,
-        logOut
-    }
-}
+        authError,
+        registerUser,
+        loginUser,
+        logout,
+    };
+};
 
 export default useFirebase;

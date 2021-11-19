@@ -14,10 +14,11 @@ import AddService from './Components/AddService/AddService';
 import AuthProvider from './Components/Contexts/AuthProvider';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import Booking from './Components/Booking/Booking';
+import Register from './Components/Login/Register/Register';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <AuthProvider>
         <BrowserRouter>
           <Header></Header>
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route path='/login'>
               <Login></Login>
+            </Route>
+            <Route path='/register'>
+              <Register/>
             </Route>
             <Route path='/myOrders'>
               <MyOrders></MyOrders>
