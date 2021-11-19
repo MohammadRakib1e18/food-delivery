@@ -6,7 +6,6 @@ import './Header.css';
 
 const Header = () => {
     const { user, logout } = useAuth();
-    console.log("header: ", user);
     return (
         <div className="header">
             <nav>

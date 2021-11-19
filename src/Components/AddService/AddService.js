@@ -1,32 +1,109 @@
-import axios from 'axios';
-import React from 'react';
-import { useForm } from "react-hook-form";
-import './AddService.css';
+import {Button } from "@mui/material";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const AddService = () => {
-    const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data =>{
-        console.log(data);
-        axios.post('http://localhost:5000/services', data)
-        .then(res=>{
-            if(res.data.insertedId){
-                alert('Added Successfully');
-                reset();
+const AddProduct = () => {
+    const [product, setProduct] = useState({});
+
+    const handleOnBlur = (e) => {
+        const field = e.target.name;
+        let value = e.target.value;
+        const newProduct = { ...product };
+        newProduct[field] = value;
+        setProduct(newProduct);
+    };
+    
+    const submitProduct = (e) => {
+        console.log(product);
+        fetch('https://morning-harbor-17755.herokuapp.com/productAdded', {
+            method: 'POST', 
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.result.insertedId){
+                alert('Product Added Successfully!');
             }
         })
-    }
+
+        e.preventDefault();
+    };
+
     return (
-        <div className="add-service">
-            <h2 className="text-center text-secondary">Plese Add a service.</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("Name", { required: true, maxLength: 20 })} placeholder="Name"/>
-                <textarea {...register("Description")} placeholder="Description"/>
-                <input type="number" {...register("price")} placeholder="price"/>
-                <input {...register("img")} placeholder="image"/>
-                <input type="submit" />
+        <div>
+            <h2 className="my-3">
+                Add <span className="text-danger">Product</span>
+            </h2>
+            <hr />
+            <form onSubmit={submitProduct}>
+                <div className="mb-3 w-50 m-auto">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">
+                        Enter Food Name
+                    </label>
+                    <input
+                        name="Name"
+                        className="form-control"
+                        id="exampleFormControInput1"
+                        placeholder="food name"
+                        onBlur={handleOnBlur}
+                        required
+                    />
+                </div>
+                <div className="mb-3 w-50 m-auto">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">
+                        Food's Image URL
+                    </label>
+                    <input
+                        name="img"
+                        className="form-control"
+                        id="exampleFormControInput1"
+                        placeholder="paste food picture's url"
+                        onBlur={handleOnBlur}
+                        required
+                    />
+                </div>
+                <div className="mb-3 w-50 m-auto">
+                    <label htmlFor="exampleFormControlInput1" className="form-label">
+                        Price
+                    </label>
+                    <input
+                        type="number"
+                        name="price"
+                        className="form-control"
+                        id="exampleFormControInput1"
+                        placeholder="food price"
+                        onBlur={handleOnBlur}
+                        required
+                    />
+                </div>
+                <div className="mb-3 w-50 m-auto">
+                    <label htmlFor="exampleFormControlTextarea1" className="form-label">
+                        Short Description
+                    </label>
+                    <textarea
+                        className="form-control"
+                        name="Description"
+                        id="exampleFormControlTextarea1"
+                        rows="3"
+                        onBlur={handleOnBlur}
+                        required
+                    ></textarea>
+                </div>
+                <Button
+                    sx={{ width: "25%", m: 1 }}
+                    type="submit"
+                    variant="contained"
+                >
+                    Upload the Product
+                </Button>
             </form>
+            <Link to='/home' className="btn btn-secondary">Back to Home</Link>
         </div>
     );
 };
 
-export default AddService;
+export default AddProduct;

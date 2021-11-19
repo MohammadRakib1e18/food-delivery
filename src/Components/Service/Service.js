@@ -5,6 +5,7 @@ import './Service.css';
 const Service = (props) => {
     // destructuring
     const {_id, img, Description, price, Name} = props.service;
+    console.log("index: ", _id);
 
     return (
         <div className="service">
@@ -15,7 +16,7 @@ const Service = (props) => {
                 <p>{Description}</p>
 
                 <Link to={`/booking/${_id}`}>
-                    <button className="btn btn-warning">Order Now</button>
+                    <button className="btn btn-warning text-primary fw-bolder w-50"><i class="fa fa-cart-plus"></i> Order Now</button>
                 </Link>
                 {/* {
                     isLog?  <Link to={`/getdetailed/${index}`}>

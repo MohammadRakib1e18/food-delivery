@@ -41,16 +41,16 @@ function App() {
             <Route path='/register'>
               <Register/>
             </Route>
-            <Route path='/myOrders'>
+            <PrivateRoute path='/myOrders'>
               <MyOrders></MyOrders>
-            </Route>
-            <Route path='/addService'>
+            </PrivateRoute>
+            <PrivateRoute path='/addService'>
               <AddService></AddService>
-            </Route>
-            <Route path='/manageOrder'>
+            </PrivateRoute>
+            <PrivateRoute path='/manageOrder'>
               <ManageOrders></ManageOrders>
-            </Route>
-            <PrivateRoute path="/booking/:serviceId">
+            </PrivateRoute>
+            <PrivateRoute path="/booking/:id">
               <Booking></Booking>
             </PrivateRoute>
             <Route path='*'>

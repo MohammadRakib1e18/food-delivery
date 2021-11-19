@@ -36,7 +36,6 @@ const Register = () => {
             history,
             location
         );
-        console.log('register: ', loginData);
         e.preventDefault();
     };
     return (
