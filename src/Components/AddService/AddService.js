@@ -14,7 +14,6 @@ const AddProduct = () => {
     };
     
     const submitProduct = (e) => {
-        console.log(product);
         fetch('https://morning-harbor-17755.herokuapp.com/productAdded', {
             method: 'POST', 
             headers: {
@@ -24,7 +23,6 @@ const AddProduct = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
             if(data.result.insertedId){
                 alert('Product Added Successfully!');
             }

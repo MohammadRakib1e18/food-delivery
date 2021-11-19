@@ -18,7 +18,6 @@ const MyOrders = () => {
             .then((res) => res.json())
             .then((data) => setOrders(data));
     }, []);
-    console.log(orders[0]);
     return (
         <div>
             <h2 className="my-4"><span className="text-danger">{user.displayName}'s</span> <span className="text-success">order</span></h2>

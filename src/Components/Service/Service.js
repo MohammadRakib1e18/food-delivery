@@ -5,7 +5,6 @@ import './Service.css';
 const Service = (props) => {
     // destructuring
     const {_id, img, Description, price, Name} = props.service;
-    console.log("index: ", _id);
 
     return (
         <div className="service">
