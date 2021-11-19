@@ -16,20 +16,7 @@ const Service = (props) => {
 
                 <Link to={`/booking/${_id}`}>
                     <button className="btn btn-warning text-primary fw-bolder w-50"><i class="fa fa-cart-plus"></i> Order Now</button>
-                </Link>
-                {/* {
-                    isLog?  <Link to={`/getdetailed/${index}`}>
-                                <div class="d-grid gap-2 col-6 mx-auto ">
-                                <button class="btn btn-secondary" type="button">Button</button>
-                                </div>
-                            </Link>:
-                            <Link to="/login">
-                                <div class="d-grid gap-2 col-6 mx-auto ">
-                                <button class="btn btn-secondary" type="button">Button</button>
-                                </div>
-                            </Link>
-                } */}
-                
+                </Link>        
             </div>
         </div>
     );

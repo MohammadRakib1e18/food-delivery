@@ -95,6 +95,7 @@ const Booking = () => {
                                 type="email"
                                 variant="standard"
                                 required
+                                disabled
                             />
                             <TextField
                                 sx={{ width: "75%", m: 1 }}
