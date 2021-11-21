@@ -9,9 +9,10 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
 import emptyPage from "./../../Images/emptyPage.jpg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const MyOrders = ({_id}) => {
+const MyOrders = ({ _id }) => {
     const [orders, setOrders] = useState([]);
     const { user } = useAuth();
 
@@ -24,25 +25,34 @@ const MyOrders = ({_id}) => {
 
     // DELETE AN USER
     const handleDeleteUser = (id) => {
-        const agreeToDelete = window.confirm(
-            "Are you sure, you want to delete?"
-        );
-        if (agreeToDelete) {
-            const url = `https://morning-harbor-17755.herokuapp.com/deleteOrder/${id}`;
-            fetch(url, {
-                method: "DELETE",
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data.deletedCount > 0) {
-                        alert("deleted successfully");
-                        const remainingOrders = orders.filter(
-                            (order) => order._id !== id
-                        );
-                        setOrders(remainingOrders);
-                    }
-                });
-        }
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const url = `https://morning-harbor-17755.herokuapp.com/deleteOrder/${id}`;
+                fetch(url, {
+                    method: "DELETE",
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+                            const remainingOrders = orders.filter(
+                                (order) => order._id !== id
+                            );
+                            setOrders(remainingOrders);
+                        }
+                    });
+            }
+        });
+
     };
     return (
         <div>
@@ -54,9 +64,12 @@ const MyOrders = ({_id}) => {
             {!orders.length ? (
                 <div>
                     <img style={{ maxWidth: "50%" }} src={emptyPage} alt="" />
-                    <br/>
-                    <Link to='/services'>
-                        <button style={{marginTop:'-237px', width: '15%'}} className="btn btn-warning text-primary fw-bolder">
+                    <br />
+                    <Link to="/services">
+                        <button
+                            style={{ marginTop: "-237px", width: "15%" }}
+                            className="btn btn-warning text-primary fw-bolder"
+                        >
                             Visit to Order
                         </button>
                     </Link>

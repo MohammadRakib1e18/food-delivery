@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import { Container, TextField, Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import {useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import useAuth from "../hooks/useAuth";
 
 const Booking = () => {
@@ -51,8 +52,13 @@ const Booking = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.result.insertedId) {
-                    alert("Order Placed Successfully!");
-                    // <Alert severity="success">Order Booked Successfully!</Alert>
+                    Swal.fire({
+                        position: 'middle',
+                        icon: 'success',
+                        title: 'Order Placed Successfully!',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
                 }
             });
 

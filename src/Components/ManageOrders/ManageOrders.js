@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button } from "@mui/material";
+import Swal from "sweetalert2";
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
@@ -21,25 +22,36 @@ const MyOrders = () => {
 
     // DELETE AN USER
     const handleDeleteUser = (id) => {
-        const agreeToDelete = window.confirm(
-            "Are you sure, you want to delete?"
-        );
-        if (agreeToDelete) {
-            const url = `https://morning-harbor-17755.herokuapp.com/deleteOrder/${id}`;
-            fetch(url, {
-                method: "DELETE",
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    if (data.deletedCount > 0) {
-                        alert("deleted successfully");
-                        const remainingOrders = orders.filter(
-                            (order) => order._id !== id
-                        );
-                        setOrders(remainingOrders);
-                    }
-                });
-        }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const url = `https://morning-harbor-17755.herokuapp.com/deleteOrder/${id}`;
+                fetch(url, {
+                    method: "DELETE",
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                "Deleted!",
+                                "Your file has been deleted.",
+                                "success"
+                            );
+                            const remainingOrders = orders.filter(
+                                (order) => order._id !== id
+                            );
+                            setOrders(remainingOrders);
+                        }
+                    });
+            }
+        });
     };
 
     return (
@@ -109,7 +121,10 @@ const MyOrders = () => {
                                     {order.name}
                                 </TableCell>
                                 <TableCell
-                                    style={{ fontSize: "1em", color: 'royalblue' }}
+                                    style={{
+                                        fontSize: "1em",
+                                        color: "royalblue",
+                                    }}
                                     align="right"
                                 >
                                     {order.foodName}

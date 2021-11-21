@@ -1,6 +1,7 @@
 import {Button } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
     const [product, setProduct] = useState({});
@@ -24,7 +25,14 @@ const AddProduct = () => {
         .then(res=>res.json())
         .then(data=>{
             if(data.result.insertedId){
-                alert('Product Added Successfully!');
+                
+                Swal.fire({
+                    position: 'middle',
+                    icon: 'success',
+                    title: 'Product Added Successfully!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
             }
         })
 
